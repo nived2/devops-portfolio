@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_REGISTRY = 'your-registry'
+        IMAGE_NAME = 'your-app'
+        IMAGE_TAG = 'latest'
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+        
+        stage('Docker Build') {
+            steps {
+                script {
+                    docker.build("${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}")
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                script {
+                    docker.withRegistry('https://${DOCKER_REGISTRY}', 'registry-credentials') {
+                        docker.image("${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}").push()
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}

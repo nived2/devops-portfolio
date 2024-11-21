@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: ./web
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppassword

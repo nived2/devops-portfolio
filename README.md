@@ -35,6 +35,37 @@ from beginner-level tasks to more complex implementations.
 
 <div class="section section">
 
+## Projects Overview
+
+### 1. Container Orchestration
+- Docker Compose configuration for a multi-service application
+- Demonstrates containerization and service orchestration
+- Located in `projects/container-orchestration/`
+
+### 2. Infrastructure as Code (IaC)
+- Terraform configuration for AWS infrastructure
+- Demonstrates cloud resource provisioning
+- Located in `projects/infrastructure-as-code/`
+
+### 3. CI/CD Pipeline
+- Jenkins pipeline configuration
+- Demonstrates automated build, test, and deployment
+- Located in `projects/ci-cd/`
+
+### 4. Kubernetes Deployment
+- Kubernetes configuration for scalable applications
+- Demonstrates container orchestration at scale
+- Located in `projects/kubernetes/`
+
+### 5. Monitoring Setup
+- Prometheus configuration for system monitoring
+- Demonstrates monitoring and observability
+- Located in `projects/monitoring/`
+
+</div>
+
+<div class="section section">
+
 ## Beginner Projects
 
 <div class="beginner-project">
